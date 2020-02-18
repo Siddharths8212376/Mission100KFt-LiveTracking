@@ -42,7 +42,6 @@ def parse():
                 long_ = float(long_)
                 # checking for valid coordinates
                 if (lat_ >= -90 and lat_ <= 90) and (long_ >= -180 and long_ <= 180):
-                    # checking for regions inside wayanad
                     if (lat_ >= 11 and lat_ <= 12) and (long_ >= 75 and long_ <= 77):
                         if [lat_, long_] not in coordinates[-1:]:
                             coordinates.append([lat_, long_])
