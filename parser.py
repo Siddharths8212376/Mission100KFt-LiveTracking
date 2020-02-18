@@ -55,6 +55,8 @@ def parse():
             parse_coordinates.append(coord)
     print(len(parse_coordinates))
     
+    
+    # improvements to be added
     with open('main_coordinates.csv', mode='w') as coords_file:
         coord_writer = csv.writer(coords_file)
         coord_writer.writerow(['LAT', 'LONG'])
@@ -66,9 +68,13 @@ def parse():
     csv_file.to_json('main_coords.json', orient='records', indent=4)
     
     # generate more points between two coordinates
-    def intermediates(p1, p2, nb_points=15):
-        """"Return a list of nb_points equally spaced points
-        between p1 and p2"""
+    """
+        #
+        #  intermediate points
+        # 
+        def intermediates(p1, p2, nb_points=15):
+        #Return a list of nb_points equally spaced points
+        # between p1 and p2
         # If we have 8 intermediate points, we have 8+1=9 spaces
         # between p1 and p2
         x_spacing = (p2[0] - p1[0]) / (nb_points + 1)
@@ -76,7 +82,7 @@ def parse():
 
         return [[p1[0] + i * x_spacing, p1[1] +  i * y_spacing] 
                 for i in range(1, nb_points+1)]
-    set_coordinates = []
+    set_coordinates = []"""
     # for index, coord in enumerate(parse_coordinates[:-1]):
     #     intermediates_ = intermediates(coord, parse_coordinates[index + 1], 20)
     #     set_coordinates.append(coord)
