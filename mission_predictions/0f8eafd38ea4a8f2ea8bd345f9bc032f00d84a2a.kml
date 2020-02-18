@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Flight Path</name>
+<description><![CDATA[Flight data for flight 0f8eafd38ea4a8f2ea8bd345f9bc032f00d84a2a <br>Site: 10.040064, 76.326973 at 5:30 on 7/2/2020]]></description>
+<Style id="yellowPoly">
+<LineStyle>
+<color>7f00ffff</color>
+<width>4</width>
+</LineStyle>
+<PolyStyle>
+<color>7f00ff00</color>
+</PolyStyle>
+</Style>
+<Placemark>
+<name>Flight path</name>
+<description>Ascent rate: 7m/s, descent rate: 5m/s with burst at 5000m.</description>
+<styleUrl>#yellowPoly</styleUrl>
+<LineString>
+<extrude>1</extrude>
+<tesselate>1</tesselate>
+<altitudeMode>absolute</altitudeMode>
+<coordinates>
+76.327,10.0401,9
+76.3274,10.039,359
+76.3277,10.0381,709
+76.328,10.0376,1059
+76.3279,10.0378,1409
+76.3274,10.0388,1759
+76.3268,10.0406,2109
+76.3264,10.0428,2459
+76.3264,10.0448,2809
+76.3274,10.0465,3159
+76.3292,10.0479,3509
+76.3313,10.0491,3859
+76.333,10.0501,4209
+76.3338,10.0511,4559
+76.3335,10.0524,4909
+76.3324,10.0536,4763.57
+76.3326,10.0548,4448.75
+76.3337,10.0558,4139.14
+76.3355,10.0568,3834.51
+76.3376,10.0579,3534.67
+76.3395,10.0594,3239.44
+76.3407,10.061,2948.65
+76.3412,10.0629,2662.15
+76.341,10.0652,2379.76
+76.3405,10.0673,2101.36
+76.3399,10.0692,1826.81
+76.3392,10.0704,1555.98
+76.3389,10.0709,1288.74
+76.339,10.0709,1024.98
+76.3392,10.0704,764.59
+76.3396,10.0697,507.468
+76.34,10.0688,253.512
+76.3406,10.0679,2.6282
+76.3406,10.0679,-2.35876
+</coordinates>
+</LineString></Placemark>
+<Placemark>
+<name>Balloon Launch</name>
+<description>Balloon launch at 10.0401, 76.327 at 05:30 07/02/2020.</description>
+<Point><coordinates>76.327,10.0401,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Balloon Burst</name>
+<description>Balloon burst at 10.0524, 76.3335 at 05:41 07/02/2020 with altitude 4909m.</description>
+<Point><coordinates>76.3335,10.0524,4909</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Predicted Balloon Landing</name>
+<description>Balloon landing at 10.0679, 76.3406 at 05:56 07/02/2020.</description>
+<Point><coordinates>76.3406,10.0679,0</coordinates></Point>
+</Placemark>
+</Document></kml>

@@ -1,0 +1,8 @@
+1570951101730,2019.10.13 12:48:21.730,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MVoid* CVEStoryboardData::MakeTransformArray(MDWord*, MRESULT*, AMVE_POSITION_RANGE_TYPE*, MBool)----ERR----this(0x70e2d1c000) err 0x85e045
+1570951101730,2019.10.13 12:48:21.730,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MDWord CVEStoryboardData::GetDurationFromClipList(MBool)----ERR----MakeTransformArray null
+1570951481397,2019.10.13 12:54:41.397,ERROR,PRETTY_LOGGER,ModuleID(0x1)----MRESULT CMV2Player::DoRefreshStream()----ERR----this(0x70f96ac000) err 0x84f03a
+1570951740587,2019.10.13 12:59:00.587,ERROR,PRETTY_LOGGER,ModuleID(0x1)----MRESULT CMV2Player::DoRefreshStream()----ERR----this(0x70dbc1cc00) err 0x84f03a
+1571594901248,2019.10.20 23:38:21.248,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MVoid* CVEStoryboardData::MakeTransformArray(MDWord*, MRESULT*, AMVE_POSITION_RANGE_TYPE*, MBool)----ERR----this(0x708f745c00) err 0x85e045
+1571594901248,2019.10.20 23:38:21.248,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MDWord CVEStoryboardData::GetDurationFromClipList(MBool)----ERR----MakeTransformArray null
+1572369694140,2019.10.29 22:51:34.140,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MVoid* CVEStoryboardData::MakeTransformArray(MDWord*, MRESULT*, AMVE_POSITION_RANGE_TYPE*, MBool)----ERR----this(0x7d371c9400) err 0x85e045
+1572369694140,2019.10.29 22:51:34.140,ERROR,PRETTY_LOGGER,ModuleID(0x40)----MDWord CVEStoryboardData::GetDurationFromClipList(MBool)----ERR----MakeTransformArray null

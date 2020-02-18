@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Flight Path</name>
+<description><![CDATA[Flight data for flight 45d7fd511ae29b0811a53b6cbd8f25f9badd843a <br>Site: 10.040064, 76.326973 at 5:30 on 7/2/2020]]></description>
+<Style id="yellowPoly">
+<LineStyle>
+<color>7f00ffff</color>
+<width>4</width>
+</LineStyle>
+<PolyStyle>
+<color>7f00ff00</color>
+</PolyStyle>
+</Style>
+<Placemark>
+<name>Flight path</name>
+<description>Ascent rate: 7m/s, descent rate: 5m/s with burst at 10000m.</description>
+<styleUrl>#yellowPoly</styleUrl>
+<LineString>
+<extrude>1</extrude>
+<tesselate>1</tesselate>
+<altitudeMode>absolute</altitudeMode>
+<coordinates>
+76.327,10.0401,9
+76.3274,10.039,359
+76.3277,10.0381,709
+76.328,10.0376,1059
+76.3279,10.0378,1409
+76.3274,10.0388,1759
+76.3268,10.0406,2109
+76.3264,10.0428,2459
+76.3264,10.0448,2809
+76.3274,10.0465,3159
+76.3292,10.0479,3509
+76.3313,10.0491,3859
+76.333,10.0501,4209
+76.3338,10.0511,4559
+76.3335,10.0524,4909
+76.3316,10.0535,5259
+76.3285,10.0541,5609
+76.3248,10.0541,5959
+76.3209,10.0533,6309
+76.317,10.052,6659
+76.3132,10.0505,7009
+76.3096,10.049,7359
+76.3062,10.0473,7709
+76.3029,10.0453,8059
+76.3,10.043,8409
+76.2972,10.0405,8759
+76.2945,10.0379,9109
+76.2919,10.0351,9459
+76.2894,10.032,9809
+76.2869,10.0288,9801.76
+76.2844,10.0257,9383.14
+76.2818,10.0229,8974.91
+76.279,10.0204,8576.46
+76.2761,10.018,8187.22
+76.2729,10.0159,7806.7
+76.2695,10.0141,7434.41
+76.2659,10.0125,7069.94
+76.2621,10.011,6712.9
+76.2582,10.0097,6362.91
+76.2542,10.0089,6019.64
+76.2504,10.0088,5682.79
+76.2471,10.0094,5352.07
+76.2449,10.0104,5027.2
+76.2441,10.0116,4707.94
+76.2445,10.0127,4394.06
+76.2456,10.0136,4085.33
+76.2473,10.0146,3781.55
+76.2493,10.0158,3482.53
+76.2511,10.0172,3188.1
+76.2522,10.0189,2898.07
+76.2526,10.021,2612.3
+76.2524,10.0233,2330.63
+76.2519,10.0255,2052.91
+76.2512,10.0273,1779.02
+76.2505,10.0285,1508.83
+76.2503,10.029,1242.21
+76.2504,10.0289,979.047
+76.2508,10.0283,719.239
+76.2514,10.0273,462.679
+76.2521,10.0262,209.269
+76.2528,10.0251,-1.23017
+</coordinates>
+</LineString></Placemark>
+<Placemark>
+<name>Balloon Launch</name>
+<description>Balloon launch at 10.0401, 76.327 at 05:30 07/02/2020.</description>
+<Point><coordinates>76.327,10.0401,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Balloon Burst</name>
+<description>Balloon burst at 10.032, 76.2894 at 05:53 07/02/2020 with altitude 9809m.</description>
+<Point><coordinates>76.2894,10.032,9809</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Predicted Balloon Landing</name>
+<description>Balloon landing at 10.0251, 76.2528 at 06:19 07/02/2020.</description>
+<Point><coordinates>76.2528,10.0251,0</coordinates></Point>
+</Placemark>
+</Document></kml>
