@@ -22,7 +22,7 @@ def parse():
             return False
 
     content = data.readlines()
-    print(len(content))
+    # print(len(content))
     coordinates = []
     index_line = 0
     for each_line in content:
@@ -113,6 +113,7 @@ with open('main_coords.json') as f:
 # print(data)
 for index, element in enumerate(data):
     # print(element)
+    # add if already exists check
     element["index"] = index
     # print(element)
     doc_ref.add(element)
