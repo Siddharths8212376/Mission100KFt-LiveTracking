@@ -126,6 +126,8 @@
         }
 
         // console.log(intermediates_)
+
+        // try to add better code here
         for (let i = 0; i < intermediates_.length; i += 1){
             array.push(intermediates_[i]);
             // console.log(array);
@@ -187,6 +189,7 @@ var error_found = false;
     var lineCoords = [];
     var image = 'hot-balloon-icon.png';
 
+    // improve the maps as well
     var initialize = function() {
       map  = new google.maps.Map(document.getElementById('map-canvas'), {center:{lat:lat,lng:lng},zoom:14//, mapTypeId: 'satellite'
       });
