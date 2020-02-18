@@ -108,7 +108,9 @@ with open('main_coords.json') as f:
 # print(data)
 for index, element in enumerate(data):
     # print(element)
-    doc_ref.add({str(index): element})
+    element["index"] = index
+    # print(element)
+    doc_ref.add(element)
 # schedule.every(5).seconds.do(parse)
 
 # ans = 1
