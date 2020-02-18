@@ -12,7 +12,7 @@
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
 
 <script>
@@ -27,9 +27,11 @@
     appId: "1:701603913533:web:86cc4f92fa8529c7716f54",
     measurementId: "G-5CJF8TW6ML"
   };
+  
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  var application = firebase.initializeApp(firebaseConfig);
+  console.log(application.name)
+
 </script>
   </head>
   <body>
@@ -66,57 +68,99 @@
     }
 
     var db = firebase.firestore();
+    console.log(db);
     var json = [];
 
-    db.collection("main_coordinates").get().then(snap => {
-      console.log("db found");
-      snap.docs.forEach(doc => {
+    db.collection("main_coordinates").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
         json.push(doc.data());
-      })
-      console.log("martin")
+        // console.log('hit');
+      });
+
+      json_ = [];
       console.log(json);
+    //   for(let i = 0; i < json.length; i += 1){
+    //     for(let j = 0; j < json.length; j += 1){
+    //       if(j == json[i].index){
+    //         var index_val = json[json[i].index];
+
+    //         value = {
+    //           "LAT": index_val.LAT,
+    //           "LONG": index_val.LONG
+    //         }
+
+    //     json_.push(value);
+    //   }
+    //   }
+    // }
+    json.sort(function(a, b){
+      return(a.index - b.index);
+    })
+      console.log("printing splice");
+      console.log(json);
+      
+
+      // json = json_;
+        // console.log(json); // this will show the info it in firebug console
+        var array = [];
+        for ( let i = 0 ; i < json.length - 1; i += 1){
+        var json_file = json[i];
+        array.push(json_file);
+        // console.log(array);
+        // intermediates_ = intermediates(json_file, json[i + 1], 20);
+
+
+        p2 = json[i + 1];
+        p1 = json_file;
+        var nb_points = 20;
+        var x_spacing = (p2["LAT"] - p1["LAT"]) / (nb_points + 1);
+        var y_spacing = (p2["LONG"] - p1["LONG"]) / (nb_points + 1);
+
+        var intermediates_ = [];
+        for (let i = 1; i <= nb_points; i += 1){
+            new_interim = {
+            "LAT": p1["LAT"] + i * x_spacing,
+            "LONG":  p1["LONG"] + i * y_spacing
+            }
+            // console.log(new_interim)
+            intermediates_ = intermediates_.concat(new_interim);
+        }
+
+        // console.log(intermediates_)
+        for (let i = 0; i < intermediates_.length; i += 1){
+            array.push(intermediates_[i]);
+            // console.log(array);
+        }
+        // array.concat(intermediates_)
+        }
+        // console.log(array);
+        var iter = { it: 0};
+        // console.log(new Date().getTime());
+        setInterval(function() {
+        pubnub.publish({channel:pnChannel, message:testCoords(iter, array)});
+        }, 100);
+        
+    
     })
 
-    $.getJSON("main_coords.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
-    var array = [];
-    for ( let i = 0 ; i < json.length - 1; i += 1){
-      var json_file = json[i];
-      array.push(json_file);
-      // console.log(array);
-      // intermediates_ = intermediates(json_file, json[i + 1], 20);
-      p2 = json[i + 1];
-      p1 = json_file;
-      var nb_points = 20;
-      var x_spacing = (p2["LAT"] - p1["LAT"]) / (nb_points + 1);
-      var y_spacing = (p2["LONG"] - p1["LONG"]) / (nb_points + 1);
+  //   var docRef = db.collection("main_coordinates").doc("03yKNVnpbD3uvM3SEn6p");
 
-      var intermediates_ = [];
-      for (let i = 1; i <= nb_points; i += 1){
-        new_interim = {
-          "LAT": p1["LAT"] + i * x_spacing,
-          "LONG":  p1["LONG"] + i * y_spacing
-        }
-        // console.log(new_interim)
-        intermediates_ = intermediates_.concat(new_interim);
-      }
+  //   console.log(docRef);
 
-      // console.log(intermediates_)
-      for (let i = 0; i < intermediates_.length; i += 1){
-        array.push(intermediates_[i]);
-        // console.log(array);
-      }
-      // array.concat(intermediates_)
-    }
-    console.log(array);
-    var iter = { it: 0};
-    console.log(new Date().getTime());
-    setInterval(function() {
+  // docRef.get().then(function(doc) {
+  //   if (doc.exists) {
+  //       console.log("Document data:", doc.data());
+  //   } else {
+  //       // doc.data() will be undefined in this case
+  //       console.log("No such document!");
+  //   }
+  //   }).catch(function(error) {
+  //   console.log("Error getting document:", error);
+  // });
 
-      pubnub.publish({channel:pnChannel, message:testCoords(iter, array)});
-    }, 100);
     
-});
+
+    
 
 var error_found = false;
 
