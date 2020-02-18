@@ -13,6 +13,7 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -63,6 +64,18 @@
       }
       return intermediates_;
     }
+
+    var db = firebase.firestore();
+    var json = [];
+
+    db.collection("main_coordinates").get().then(snap => {
+      console.log("db found");
+      snap.docs.forEach(doc => {
+        json.push(doc.data());
+      })
+      console.log("martin")
+      console.log(json);
+    })
 
     $.getJSON("main_coords.json", function(json) {
     console.log(json); // this will show the info it in firebug console
