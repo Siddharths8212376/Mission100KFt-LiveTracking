@@ -12,12 +12,12 @@ default_app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # no. of documents already parsed
-global doc_count
+global doc_count, doc_ref
 doc_count = 0
 # time_ = time.time()
 def parse():
-    global doc_count
-    data = open('./mission_flight/raw_data.txt', encoding='utf-8', errors='ignore')
+    global doc_count, doc_ref
+    data = open('./mission_flight/test_raw_data.txt', encoding='utf-8', errors='ignore')
     def is_number(s):
         try:
             float(s)
@@ -53,14 +53,17 @@ def parse():
     for index, coord in enumerate(coordinates[:-1]):
         if (abs(coord[0] - coordinates[index + 1][0]) <= 0.004 and (abs(coord[1] - coordinates[index + 1][1]) <= 0.004)):
             parse_coordinates.append(coord)
-
-    coord_dict = {}
+    # print(parse_coordinates)
+    
     coord_list = []
+    
     for coord in parse_coordinates:
+        coord_dict = {}
         coord_dict["LAT"] = coord[0]
         coord_dict["LONG"] = coord[1]
         coord_list.append(coord_dict)
-    
+        
+    # print(coord_list)
 
     
     doc_ref = db.collection(u'main_coordinates')
@@ -68,22 +71,39 @@ def parse():
         # add if already exists check
         if index >= doc_count:
             element["index"] = index
-            doc = doc_ref.document(str(index))
-            doc.set(element)
+            doc_ref.add(element)
             doc_count += 1
     print('.', end='')
+    
+def delete_collection(coll_ref, batch_size=1):
+    docs = coll_ref.limit(batch_size).stream()
+    deleted = 0
 
+    for doc in docs:
+        doc.reference.delete()
+        time.sleep(1)
+        deleted = deleted + 1
+
+    if deleted >= batch_size:
+        return delete_collection(coll_ref, batch_size)
+    
+def main():
+        
+    delete_collection(doc_ref, batch_size=1)
+    parse()
+    time.sleep(10)
+    
+    
 parse()
-now = time.time()
-# print(now - time_)
-# schedule.every(5).seconds.do(parse)
+time.sleep(10)
 
 
+schedule.every(10).seconds.do(main)
 
-# while True:
+while True:
 
-#     schedule.run_pending()
-#     time.sleep(1)
+    schedule.run_pending()
+    time.sleep(1)
     
 
 

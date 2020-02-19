@@ -76,7 +76,7 @@
         // console.log('hit');
       });
 
-      json_ = [];
+      
       // console.log(json);
     //   for(let i = 0; i < json.length; i += 1){
     //     for(let j = 0; j < json.length; j += 1){
@@ -96,7 +96,7 @@
       return(a.index - b.index);
     })
       // console.log("printing splice");
-      // console.log(json);
+      console.log(json);
       
 
       // json = json_;
@@ -134,12 +134,12 @@
         }
         // array.concat(intermediates_)
         }
-        // console.log(array);
+        console.log(array);
         var iter = { it: 0};
         // console.log(new Date().getTime());
         setInterval(function() {
         pubnub.publish({channel:pnChannel, message:testCoords(iter, array)});
-        }, 100);
+        }, 200);
         
     
     })
